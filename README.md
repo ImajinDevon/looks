@@ -4,11 +4,12 @@
 # Usage (as of v1.0)
 
 ```java
-final class Main {
-    private Main() {
-    }
+import com.github.imajindevon.looks.component.ParentComponent;
+import com.github.imajindevon.looks.component.components.ContainerComponent;
+import com.github.imajindevon.looks.serialization.HtmlSerializer;
 
-    public static void main(@NotNull String[] args) {
+public class Main {
+    public static void main(String[] args) {
         ContainerComponent document = new ContainerComponent("html");
         document.applyProperty("lang", "en");
         
