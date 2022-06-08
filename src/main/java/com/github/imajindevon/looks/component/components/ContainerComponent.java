@@ -70,7 +70,7 @@ public class ContainerComponent implements ParentComponent {
     }
 
     /**
-     * Create a new ContainerComponent that represents a value component.
+     * Create a new ContainerComponent that contains a value component.
      * (e.g) {@code <a>hello</a>}
      *
      * @param name the name
@@ -79,7 +79,7 @@ public class ContainerComponent implements ParentComponent {
      * @return the new ContainerComponent
      */
     @Contract("_, _, -> new")
-    public static ContainerComponent newValue(@NotNull String name, @NotNull Object value) {
+    public static ContainerComponent construct(@NotNull String name, @NotNull Object value) {
         return new ParentComponent.Builder<>(new ContainerComponent(name))
                    .addChild(new StringComponent(value))
                    .get();

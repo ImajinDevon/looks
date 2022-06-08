@@ -16,16 +16,17 @@ final class HtmlTest {
     void simpleTest() {
         Path path = Path.of("src/test/resources/output/simpleTest.html");
 
-        try (OutputStream outputStream = Files.newOutputStream(path, StandardOpenOption.CREATE, StandardOpenOption.WRITE)) {
+        try (
+            OutputStream outputStream = Files.newOutputStream(path, StandardOpenOption.CREATE, StandardOpenOption.WRITE)
+        ) {
             ContainerComponent document = new ContainerComponent("html");
 
             document.applyProperty("lang", "en");
 
-            document.addChild(
-                new ParentComponent.Builder<>(new ContainerComponent("head"))
-                    .addChild(ContainerComponent.newValue("title", "This is a test!"))
-                    .get()
-            );
+            document.addChild(new ParentComponent.Builder<>(
+                new ContainerComponent("head"))
+                                  .addChild(ContainerComponent.construct("title", "This is a test!"))
+                                  .get());
 
             String html = HtmlSerializer.format(document);
             outputStream.write(html.getBytes(StandardCharsets.UTF_16));
