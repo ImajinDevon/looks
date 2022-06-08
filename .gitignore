@@ -1,0 +1,10 @@
+.gradle/
+gradle/
+src/test/resources/output/
+
+# Project exclude paths
+/build/
+/build/classes/java/main/
+/build/classes/java/test/
+
+.idea/
