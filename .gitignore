@@ -1,5 +1,4 @@
 .gradle/
-gradle/
 src/test/resources/output/
 
 # Project exclude paths

@@ -44,10 +44,7 @@ public final class HtmlSerializer {
     @NotNull
     public static String format(@NotNull ContainerComponent root) {
         StringBuilder builder = new StringBuilder("<!DOCTYPE html>");
-
-        for (Component child : root.getChildren()) {
-            serializeComponent(builder, child);
-        }
+        serializeComponent(builder, root);
         return builder.toString();
     }
 }
